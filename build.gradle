@@ -1,10 +1,8 @@
 plugins {
     id 'java-gradle-plugin'
     id 'com.gradle.plugin-publish' version '0.13.0'
+    id 'java'
 }
-
-apply plugin: 'java'
-apply plugin: 'maven-publish'
 
 group 'de.kontext_e.jqassistant.gradle'
 version '1.0.1-SNAPSHOT'
@@ -25,8 +23,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    // add this plugin to maven local to allows using within the testProject
-    dependsOn("publishToMavenLocal")
     // pass the proxy configuration to the gradle test executor
     systemProperty "http.proxyHost", System.getProperty('http.proxyHost')
     systemProperty "http.proxyPort", System.getProperty('http.proxyPort')
